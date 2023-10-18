@@ -1,7 +1,7 @@
 name: 02-2. Dependencies 
 
 on:
-  workflow_call:
+ workflow_dispatch:
   # push:
   #   branches:
   #     - main
@@ -65,3 +65,6 @@ jobs:
     needs: [ring04]
     steps:
       - run: echo "This job will be run after the ring04 job."
+  call_dependencies_workflow_job:
+    needs: call_reusable_workflow_job
+    uses: <YOUR_USER_ACCOUNT>/gh-abcs-actions/.github/workflows/job-dependencies.yml@main
